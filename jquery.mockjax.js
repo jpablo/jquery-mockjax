@@ -63,6 +63,9 @@
 			// Querystring may be a regex
 			return $.isFunction( mock.test ) ? mock.test(live) : mock == live;
 		}
+	        if($.isEmptyObject(mock) && $.isEmptyObject(live)) {
+	            return true;
+	        }		
 		$.each(mock, function(k, v) {
 			if ( live[k] === undefined ) {
 				identical = false;
